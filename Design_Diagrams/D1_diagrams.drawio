@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" modified="2026-10-08T20:00:00.000Z" agent="HepatoFusion" version="22.1.0">
+  <diagram id="d1-data" name="D1 Data Model">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="HepatoFusion D1 Data Model — Cohort case index&#xa;JSON/CSV under hepato_fusion/v1/cases/&lt;study_id&gt;/  |  Solid=entity  Dashed=external  Cardinality on both ends" style="text;html=1;align=center;fontStyle=1;fontSize=14;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="20" width="900" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="case" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;Case&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;font-family:Courier New;&quot;&gt;&lt;u&gt;study_id&lt;/u&gt; (PK)&lt;br&gt;in_cohort: bool&lt;br&gt;localization_pointer&lt;br&gt;updated_at&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="mod" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;ModalityLink&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;font-family:Courier New;&quot;&gt;&lt;u&gt;(study_id, modality)&lt;/u&gt; PK&lt;br&gt;status: linked | not_linked | unmatched&lt;br&gt;artifact_path?&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="out" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;OutcomesRow&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;font-family:Courier New;&quot;&gt;&lt;u&gt;study_id&lt;/u&gt; (PK/FK)&lt;br&gt;ready: bool&lt;br&gt;exclusion_reason: null&lt;br&gt;field_payload: map&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="excl" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;ExclusionLogEntry&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;font-family:Courier New;&quot;&gt;log_id&lt;br&gt;study_id_attempted&lt;br&gt;reason: unmatched | ambiguous_join | field_not_coded&lt;br&gt;field_name?&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="900" y="360" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="xlsx" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;Outcomes spreadsheet&lt;/b&gt; (external)&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;&quot;&gt;.xlsx source&lt;br&gt;join column → study_id&lt;br&gt;ALG-01 reads this&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="380" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="path" value="&lt;p style=&quot;margin:0px;font-size:12px;&quot;&gt;&lt;b&gt;Existing pathology pipeline&lt;/b&gt; (external)&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;font-size:11px;&quot;&gt;cohort membership&lt;br&gt;localization pointer (I6)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="380" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="1" style="endArrow=ERzeroToMany;startArrow=ERmandOne;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="case" target="mod">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1a" value="1 .. *" style="edgeLabel;html=1;fontSize=11;" vertex="1" connectable="0" parent="e1"><mxGeometry x="-0.2" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry></mxCell>
+
+        <mxCell id="e2" value="" style="endArrow=ERzeroToOne;startArrow=ERmandOne;html=1;rounded=0;" edge="1" parent="1" source="case" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2a" value="0 .. 1" style="edgeLabel;html=1;fontSize=11;" vertex="1" connectable="0" parent="e2"><mxGeometry x="0.2" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry></mxCell>
+
+        <mxCell id="e3" style="endArrow=ERzeroToMany;startArrow=ERmandOne;html=1;dashed=1;rounded=0;" edge="1" parent="1" source="case" target="excl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3a" value="0 .. * attempts" style="edgeLabel;html=1;fontSize=11;" vertex="1" connectable="0" parent="e3"><mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry></mxCell>
+
+        <mxCell id="e4" style="endArrow=block;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="path" target="case">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4a" value="I6" style="edgeLabel;html=1;" vertex="1" connectable="0" parent="e4"><mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry></mxCell>
+
+        <mxCell id="e5" style="endArrow=block;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="xlsx" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5a" value="ALG-01" style="edgeLabel;html=1;" vertex="1" connectable="0" parent="e5"><mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry></mxCell>
+
+        <mxCell id="leg" value="Conventions: solid blue = entity; dashed gray = external; PK underlined; cardinality on both ends; versioning via v1/ folder root; no PHI attributes" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="560" width="720" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
