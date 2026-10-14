@@ -1,0 +1,177 @@
+<mxfile host="app.diagrams.net" modified="2026-10-14T00:00:00.000Z" agent="HepatoFusion" version="22.1.0">
+  <diagram id="d2-components" name="D2 Component Error Paths">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="HepatoFusion D2 — Components and Error Paths&#xa;Solid blue = component we build  |  Dashed gray = external  |  Purple = glue component  |  Red = error path" style="text;html=1;align=center;fontStyle=1;fontSize=14;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1300" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- External sources -->
+        <mxCell id="RT" value="Radiology team" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="MOL" value="Molecular Excel source" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUT" value="Outcomes spreadsheet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="PATH" value="Existing pathology pipeline" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Built components -->
+        <mxCell id="GATE" value="Identifier gate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="320" y="150" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="RI" value="Radiology intake" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="GI" value="Genomics intake" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="OC" value="Outcomes cleaner (D1)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="320" y="290" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="CCI" value="Cohort case index (D1)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="MI" value="Modality integrator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="200" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="RS" value="Risk scorer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="200" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="RP" value="Review package" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="200" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Downstream external -->
+        <mxCell id="PP" value="PathPresenter" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="310" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="DOC" value="Pathologist" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="400" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Glue -->
+        <mxCell id="CFG" value="Configuration (glue)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="320" y="470" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="LOG" value="Logging (glue)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="470" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="AUTH" value="Authentication (glue, SSO)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="470" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="NOT" value="Notifications (glue, read-only)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="470" width="240" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Happy path edges -->
+        <mxCell id="eI1" value="I1 DICOM" style="endArrow=block;html=1;" edge="1" parent="1" source="RT" target="GATE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI2" value="I2 xlsx" style="endArrow=block;html=1;" edge="1" parent="1" source="MOL" target="GATE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI5" value="I5 xlsx" style="endArrow=block;html=1;" edge="1" parent="1" source="OUT" target="OC"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI6" value="I6 cohort + localization pointer" style="endArrow=block;html=1;dashed=1;" edge="1" parent="1" source="PATH" target="CCI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI11" value="I11 pointer" style="endArrow=block;html=1;dashed=1;" edge="1" parent="1" source="PATH" target="MI"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="eI3" value="I3 deid DICOM" style="endArrow=block;html=1;" edge="1" parent="1" source="GATE" target="RI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI4" value="I4 deid xlsx" style="endArrow=block;html=1;" edge="1" parent="1" source="GATE" target="GI"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="eI7" value="I7" style="endArrow=block;html=1;" edge="1" parent="1" source="RI" target="CCI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI8" value="I8" style="endArrow=block;html=1;" edge="1" parent="1" source="GI" target="CCI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI9" value="I9" style="endArrow=block;html=1;" edge="1" parent="1" source="OC" target="CCI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI10" value="I10" style="endArrow=block;html=1;" edge="1" parent="1" source="CCI" target="MI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI12" value="I12 input list" style="endArrow=block;html=1;" edge="1" parent="1" source="MI" target="RS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI13" value="I13 score or block" style="endArrow=block;html=1;" edge="1" parent="1" source="RS" target="RP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI14" value="I14 helper files" style="endArrow=block;html=1;" edge="1" parent="1" source="RP" target="PP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eI15" value="I15 case view" style="endArrow=block;html=1;" edge="1" parent="1" source="PP" target="DOC"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Error paths (red) -->
+        <mxCell id="eE1" value="blocked / pixel identifier (E-04)" style="endArrow=block;html=1;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="GATE" target="RT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eE2" value="blocked / wrong format (E-12)" style="endArrow=block;html=1;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="GATE" target="MOL"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eE3" value="insufficient_modalities (R-02, E-22)" style="endArrow=block;html=1;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="MI" target="RP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eE4" value="outcomes_not_ready / model_load fail (E-29)" style="endArrow=block;html=1;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="RS" target="RP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eE5" value="viewer_open_failed (E-33)" style="endArrow=block;html=1;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="PP" target="RP"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Glue dashed connections -->
+        <mxCell id="eCfgGate" value="I17 config read" style="endArrow=block;html=1;dashed=1;strokeColor=#9673A6;" edge="1" parent="1" source="CFG" target="GATE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eCfgRS" value="I17 config read" style="endArrow=block;html=1;dashed=1;strokeColor=#9673A6;" edge="1" parent="1" source="CFG" target="RS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eLogGate" value="I16 log write" style="endArrow=block;html=1;dashed=1;strokeColor=#9673A6;" edge="1" parent="1" source="GATE" target="LOG"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eLogRS" value="I16 log write" style="endArrow=block;html=1;dashed=1;strokeColor=#9673A6;" edge="1" parent="1" source="RS" target="LOG"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eNotStatus" value="I18 read_case_status" style="endArrow=block;html=1;dashed=1;strokeColor=#9673A6;" edge="1" parent="1" source="NOT" target="CCI"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Legend -->
+        <mxCell id="leg" value="Legend: solid blue = built; dashed gray = external; purple = glue; red dashed = error path; file transfers over the approved CCHMC/UC share, no public API." style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="560" width="1540" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="d2-lifecycle" name="D2 Case Lifecycle">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title2" value="HepatoFusion D2 — Case Lifecycle State Machine&#xa;States follow one study_id from cohort membership to viewer open. Red states are terminal non-scoring outcomes." style="text;html=1;align=center;fontStyle=1;fontSize=14;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="20" width="1100" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s_init" value="● start" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_coh" value="CohortMember" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="220" y="130" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_hp" value="HasPathology" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="440" y="130" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_aw" value="AwaitingModalities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="660" y="130" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_sc" value="ScorableCandidate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="900" y="130" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_scored" value="Scored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="130" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_pkg" value="InReviewPackage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="220" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_open" value="OpenedInViewer (terminal)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="310" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s_bno" value="Blocked_NoOutcomes (terminal, red)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="440" y="310" width="260" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_bim" value="Blocked_InsufficientModalities (terminal, red)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="720" y="310" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_vof" value="ViewerOpenFailed (terminal, red)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="400" width="260" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t1" value="I6 cohort list seen" style="endArrow=block;html=1;" edge="1" parent="1" source="s_init" target="s_coh"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t2" value="localization_pointer resolves (I11 OK)" style="endArrow=block;html=1;" edge="1" parent="1" source="s_coh" target="s_hp"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t3" value="no non-pathology modality linked yet" style="endArrow=block;html=1;" edge="1" parent="1" source="s_hp" target="s_aw"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t4" value="outcomes = model_ready AND (radiology linked OR molecular linked)" style="endArrow=block;html=1;" edge="1" parent="1" source="s_aw" target="s_sc"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t5" value="I13 writes score + used_inputs" style="endArrow=block;html=1;" edge="1" parent="1" source="s_sc" target="s_scored"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t6" value="I14 writes helper files" style="endArrow=block;html=1;" edge="1" parent="1" source="s_scored" target="s_pkg"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t7" value="PathPresenter opens files (I15)" style="endArrow=block;html=1;" edge="1" parent="1" source="s_pkg" target="s_open"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="t8" value="outcomes = not_model_ready (UC-01 E1)" style="endArrow=block;html=1;strokeColor=#B85450;" edge="1" parent="1" source="s_hp" target="s_bno"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t9" value="outcomes = model_ready AND radiology not_linked AND molecular not_linked (D2 R-02)" style="endArrow=block;html=1;strokeColor=#B85450;" edge="1" parent="1" source="s_aw" target="s_bim"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="t10" value="PathPresenter cannot open overlay (OQ-02 / E-33)" style="endArrow=block;html=1;strokeColor=#B85450;" edge="1" parent="1" source="s_pkg" target="s_vof"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="leg2" value="Legend: green = scorable path  |  red = terminal non-scoring state  |  arrow label = event or condition that triggers the transition.  Transitions are enforced by the Modality integrator (§2.5) and Risk scorer (§2.6)." style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="480" width="1300" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
