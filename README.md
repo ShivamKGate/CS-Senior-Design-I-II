@@ -32,9 +32,10 @@ The Silver/Gold whole-slide pipeline is already built (1,566 Silver and 1,546 Go
 | [`Planning/A5_A6_Implementation_Plan.md`](Planning/A5_A6_Implementation_Plan.md) | Week 8 task list, milestones, timeline, effort matrix, WBS, risk register |
 | [`Tasklist.md`](Tasklist.md) | Canonical sixteen-task list |
 | [`Requirements_Document.md`](Requirements_Document.md) | Week 9 requirements (what the system must do and for whom). Version 1.0. |
-| [`Technical_Specification.md`](Technical_Specification.md) | Week 9 technical specification (how it will be built). Version 1.0, traces to Requirements Document v1.0. |
+| [`Technical_Specification.md`](Technical_Specification.md) | Week 9 technical specification (how it will be built). Traces to Requirements Document v1.0. |
+| [`Test_Plan.md`](Test_Plan.md) | Week 10 test plan (how we prove the requirements). Version 1.0. |
 
-Diagrams live under `Design_Diagrams/` and are linked from the two Week 9 documents rather than duplicated.
+Diagrams live under `Design_Diagrams/` and are linked from the Week 9–10 documents rather than duplicated.
 
 ## 4. Repository policy
 

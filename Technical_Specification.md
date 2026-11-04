@@ -6,9 +6,9 @@
 **Partner:** Cincinnati Children’s Hospital  
 **Courses:** CS 5001 Senior Design I (Fall 2026) and CS 5002 Senior Design II (Spring 2027)  
 **Document:** Technical Specification (Week 9)  
-**Version:** 1.0  
-**Date:** 30 October 2026  
-**Traces to:** [`Requirements_Document.md`](Requirements_Document.md) **version 1.0 (30 October 2026)**
+**Version:** 1.1  
+**Date:** 4 November 2026  
+**Traces to:** [`Requirements_Document.md`](Requirements_Document.md) **version 1.0 (30 October 2026)**; test IDs expanded in [`Test_Plan.md`](Test_Plan.md) v1.0
 
 This document answers **how** the system will be built. It does not introduce a new design. Architecture, interfaces, schemas, and error behavior are those already specified in `Design_Diagrams/D0_High_Level_Design.md`, `Design_Diagrams/D1_Detailed_Design.md`, and `Design_Diagrams/D2_Detailed_Design.md`. Diagrams are linked, not copied.
 
@@ -22,6 +22,7 @@ No PHI, medical record numbers, or slide files are in this file or in Git.
 
 | Version | Date | Change | Author |
 |---|---|---|---|
+| 1.1 | 2026-11-04 | Traceability matrix Test Case column expanded for Must groups to match Test Plan v1.0 (TC-005-*, TC-006-*, TC-010-*, TC-015-*). No REQ/NFR/CON IDs changed. | Shivam Sinay Kharangate, Nipun Chandra |
 | 1.0 | 2026-10-30 | Initial technical specification tracing to Requirements Document v1.0. Consolidates D0 I1–I15, D1 schemas and ALG-01, D2 I16–I18, the D2 partial-score rule, the Week 8 pathology-first order, the 21 October 2026 team meeting, the 29 October 2026 advisor review, the six-architecture comparison table, and REQ-09 / REQ-10. | Shivam Sinay Kharangate, Nipun Chandra |
 
 Logged design / scope changes since the Week 7 review (same events as Requirements Document v1.0 §1). D0 and D1 text are **not** rewritten (D2 R-10).
@@ -255,24 +256,24 @@ Traces to **Requirements Document version 1.0 (30 October 2026)**. Columns are e
 | REQ-02 | At most one score in `[0.0, 1.0]`; `used_inputs` names only consumed modalities | D0 Risk scorer (I12, I13); D2 §2.6 ScoreResult; D2 §2.5 IntegratedInputList.inputs | Planned | TC-002 |
 | REQ-03 | No numeric score when outcomes are not model-ready; exact block reason | D0 I13; D2 §2.5 `assembly_decision = outcomes_not_ready`; D2 §2.6 `block_reason`; D2 state `Blocked_NoOutcomes`; UC-01 E1 | Designed | TC-003 |
 | REQ-04 | Radiology `linked` only on exact-one cohort match; never guess | D0 Radiology intake (I3, I7); D2 §2.3 RadiologyRecord.link_status; D1 Cohort case index ModalityLink; E-06, E-09 | Planned | TC-004 |
-| REQ-05 | Outcomes keep iff exact-one join and agreed fields ready; three counts; named exclusions; Epic-derived fields allowed as source | D0 Outcomes cleaner (I5, I9); D1 ALG-01, OutcomesRow, ExclusionLogEntry; D2 E-14, E-16, E-17 | Planned | TC-005 |
-| REQ-06 | Gate pass / pass-with-redaction / block; no identifier values in status JSON or Git | D0 Identifier gate (I1, I2); D2 §2.2 GateRecord and RedactionEntry; D2 §2.9 `identifier_rules`; E-04, E-05, E-40 | In progress | TC-006 |
+| REQ-05 | Outcomes keep iff exact-one join and agreed fields ready; three counts; named exclusions; Epic-derived fields allowed as source | D0 Outcomes cleaner (I5, I9); D1 ALG-01, OutcomesRow, ExclusionLogEntry; D2 E-14, E-16, E-17 | Planned | TC-005-1 … TC-005-4 |
+| REQ-06 | Gate pass / pass-with-redaction / block; no identifier values in status JSON or Git | D0 Identifier gate (I1, I2); D2 §2.2 GateRecord and RedactionEntry; D2 §2.9 `identifier_rules`; E-04, E-05, E-40 | In progress | TC-006-1 … TC-006-3 |
 | REQ-07 | Score only if pathology + model-ready outcomes + (annotated radiology **or** molecular) | D2 §2.5 assembler (replaces D0 D-06); D2 state `Blocked_InsufficientModalities`; E-22 | Designed | TC-007 |
 | REQ-08 | Molecular intake `.xlsx` only; other types blocked at the gate | D0 D-05; D0 I2; D2 §2.4 GenomicsRecord; E-12 | Designed | TC-008 |
-| REQ-09 | One `case_link.json` per inventoried `study_id`; `in_cohort` and localization pointer; no PHI fields | D0 Cohort case index (I6); D1 Case + ModalityLink; D1 `validate_and_write_case_link`; Week 8 T2/T5 | Planned | TC-015 |
+| REQ-09 | One `case_link.json` per inventoried `study_id`; `in_cohort` and localization pointer; no PHI fields | D0 Cohort case index (I6); D1 Case + ModalityLink; D1 `validate_and_write_case_link`; Week 8 T2/T5 | Planned | TC-015-1 … TC-015-4 |
 | REQ-10 | Pathology `model_version` swappable among evaluated architectures; pointer schema unchanged | Existing pathology pipeline (D0 dashed); D2 R-04 analog; `pipeline_config.yaml` `localization.model_version`; this document §4.1; T6/T7 | In progress | TC-016 |
 | NFR-01 | Cleaner: ≤ 2,000 rows, ≤ 200 cohort IDs, ≤ 120 s on approved CPU | D1 ALG-01 complexity note; D1 §6 pandas/openpyxl; Outcomes cleaner I5 | Designed | TC-009 |
-| NFR-02 | 100% of new radiology/molecular files gated; SSO/ACL only; 0 identifier values in Git or logs | D2 §2.2 Identifier gate; D2 §2.8 Authentication; D2 §2.10 log sanitizer (E-40); D2 §2.9 `paths.approved_root` | In progress | TC-010 |
+| NFR-02 | 100% of new radiology/molecular files gated; SSO/ACL only; 0 identifier values in Git or logs | D2 §2.2 Identifier gate; D2 §2.8 Authentication; D2 §2.10 log sanitizer (E-40); D2 §2.9 `paths.approved_root` | In progress | TC-010-1 … TC-010-3 |
 | NFR-03 | Pathologist finds overlay and score-or-reason in ≤ 5 minutes in an existing viewer, ≥ 2 of 3 cases | D0 I15 PathPresenter; D2 §2.7 Review package; D0 D-08 QuPath alternate; OQ-06; Week 8 T14 | Planned | TC-011 |
 | NFR-04 | `.part` + rename; crash mid-write never yields a silently truncated valid record; 10/10 trials | D2 E-13, E-15, E-19, E-31; D1 `validate_and_write_case_link` | Designed | TC-012 |
 | NFR-05 | Breaking schema change published as `v2/`; `v1/` remains readable | D1 §5 versioning; D2 §2.9 `paths.cases_root`; D1 D1-05 | Designed | TC-013 |
 | CON-01 | Decision support; Silver not ground truth; disclaimer required | D0 I14 disclaimer; D2 §2.6 ScoreResult.disclaimer; D2 §2.7 ReviewPackage.disclaimer | Designed | TC-001 |
-| CON-02 | PHI off personal devices, Git, and consumer cloud; approved compute only | D0 transport rule; D2 Identifier gate + Logging sanitizer + `approved_root`; D1 §6 hosting | In progress | TC-010 |
+| CON-02 | PHI off personal devices, Git, and consumer cloud; approved compute only | D0 transport rule; D2 Identifier gate + Logging sanitizer + `approved_root`; D1 §6 hosting | In progress | TC-010-1 … TC-010-3 |
 | CON-03 | Data-use agreements; research prototype; no FDA claim; no slide redistribution | D2 disclaimer fields; Review package files stay on the approved share, not Git (I14) | Designed | TC-001 |
 | CON-04 | No commercial budget; open-source stack; reuse existing Silver/Gold | D1 §4 build-versus-reuse; D1 §6 Python / pandas / openpyxl; this document §4 stack table and §4.1 | Designed | TC-014 |
 | CON-05 | Compliance-first: delay fusion rather than skip isolation or score on pathology-only | D2 R-02 / REQ-07; Week 8 ice of T15/T16 until M36; Requirements Document §7 Could / Won’t | Designed | TC-007 |
 
-Week 10 will specify procedure, fixtures, and pass/fail for TC-001–TC-016. IDs above are reserved so they are not reused. TC-014 is an inspection of the §4 stack (Python, pandas, openpyxl, existing PyTorch localization stack; no commercial pathology platform on the bill). TC-015 inspects inventory vs `case_link.json` count. TC-016 runs two `model_version` values and checks the pointer schema is unchanged.
+Procedure, fixtures, and pass/fail for all cases live in [`Test_Plan.md`](Test_Plan.md) v1.0. Matrix anchors TC-001–TC-016 are unchanged; Must groups expand as TC-005-*, TC-006-*, TC-010-*, TC-015-* (logged in this document’s v1.1 change log). TC-014 remains stack inspection. No Design Component cell is blank; no row is ORPHANED.
 
 ---
 
