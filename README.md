@@ -34,9 +34,16 @@ The Silver/Gold whole-slide pipeline is already built (1,566 Silver and 1,546 Go
 | [`Requirements_Document.md`](Requirements_Document.md) | Week 9 requirements (what the system must do and for whom). Version 1.0. |
 | [`Technical_Specification.md`](Technical_Specification.md) | Week 9 technical specification (how it will be built). Traces to Requirements Document v1.0. |
 | [`Test_Plan.md`](Test_Plan.md) | Week 10 test plan (how we prove the requirements). Version 1.0. |
+| [`Ethics_Statement.md`](Ethics_Statement.md) | Privacy, security, licensing, attribution, and AI-use disclosure. |
 
 Diagrams live under `Design_Diagrams/` and are linked from the Week 9–10 documents rather than duplicated.
 
 ## 4. Repository policy
 
 Do not commit PHI, credentials, WSIs, DICOM, or identified Excel. Training and inference stay on approved Cincinnati Children’s compute. See REQ-06, NFR-02, and CON-02 in the requirements document.
+
+This repository is **documentation-only**. The HepatoFusion code lives in a **separate private repository owned by CCHMC** because it operates adjacent to PHI and is governed by the Cincinnati Children's data-use agreement and HIPAA-aligned handling (CON-02, CON-03).
+
+## 5. Ethics, privacy, security, licensing, and AI-use
+
+See [`Ethics_Statement.md`](Ethics_Statement.md) for the full privacy table, security self-audit (git history scanned clean across 22 commits), dependency license table, attribution list, and per-member AI-use disclosure. HepatoFusion has **no public license**; it is an internal research prototype under CCHMC/UC agreement. Planned dependencies (pandas, openpyxl, pydicom, PyYAML, PyTorch, Python stdlib) are permissive-only (BSD-3-Clause / MIT / PSF-2.0), compatible with that posture, with no copyleft in the stack.
