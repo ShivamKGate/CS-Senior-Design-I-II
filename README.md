@@ -35,6 +35,7 @@ The Silver/Gold whole-slide pipeline is already built (1,566 Silver and 1,546 Go
 | [`Technical_Specification.md`](Technical_Specification.md) | Week 9 technical specification (how it will be built). Traces to Requirements Document v1.0. |
 | [`Test_Plan.md`](Test_Plan.md) | Week 10 test plan (how we prove the requirements). Version 1.0. |
 | [`Ethics_Statement.md`](Ethics_Statement.md) | Privacy, security, licensing, attribution, and AI-use disclosure. |
+| [Presentation video](https://youtu.be/goQDQ8QKe7I) | Fall 2026 project presentation (YouTube). |
 
 Diagrams live under `Design_Diagrams/` and are linked from the Week 9–10 documents rather than duplicated.
 
